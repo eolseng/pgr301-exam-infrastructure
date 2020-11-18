@@ -13,7 +13,7 @@ env:
     - secure: ZYkCUcWfunnL2TXsQ/VdkItG/lRU+T3+06j4Tbecw1O0DZNFJKT/MgNZJuhgT2ejNL9H5mHq9QTcXniieZ70fUpXKWd1hw3GDFxW+LkJAYJMzzTOrXkZRGFr0Q+cCbTeoeFan69knrNNN31MHm9PlF06kEKmvhqFCK8ZrL1NqsVGlZ8ukmI9W01L0/b2VUESnI/ymeClDjViura/EANsZH7Tpz42WNMT8sbH+72mAgETe3bBm5N1UkiK/6pa2YIS02/sJC7f8KdxGoYcdSzirh1ANfIegpWY1CvXRt++IZTza4okk5mbVpykOSFFom1jHdA0k+vcLmctW5OOt9SDh/aZrw4/jvl1DVawQGY3a7fNpPz1NJqI8lyuZYA8CtQ6zFcc5sjGbypmUJz+do2lUzdsCHidA4OEnZhbg2v1W/8ul/43KtUJpClmnejGKG1V+iVdqCB37MJwp3A9i4p8XwXSb7j+c+rGeh6pPVMiy51Nodipu1kMXwSkyLw+bZQOh8W4b3PU+3KqRigp1UkFCOIrBn6IGwpPwiR959b5fN4+wh0QbISu3lZOHBbJ6qRY0K4Dq2fCJXykEU/0BQiGVGAWgxEc/tgxwABVNeCYonlDPo4szil0Z79GWSrEyrjaiuP8hX+W8SGz0oLmvs5eXrkiQnmXxUZrFB1JgqPP3zg=
 before_install:
   - openssl aes-256-cbc -K $encrypted_e3b08b1bff3b_key -iv $encrypted_e3b08b1bff3b_iv
-    -in gcp_keyfile.json.enc -out ./keyfiles/gcp_keyfile.json -d
+    -in gcp_keyfile.json.enc -out gcp_keyfile.json -d
   - bash ./scripts/install_terraform
 install:
   - export TF_VAR_project_name=$PROJECT_NAME
@@ -21,5 +21,10 @@ install:
 script:
   - terraform init ${TF_INIT_CLI_OPTIONS}
   - terraform plan ${TF_PLAN_CLI_OPTIONS}
-  - terraform apply ${TF_APPLY_CLI_OPTIONS}
-  - terraform output ${TF_OUTPUT_CLI_OPTIONS}
+deploy:
+  provider: script
+  on:
+    branch: master
+  script: |-
+    - terraform apply ${TF_APPLY_CLI_OPTIONS}
+    - terraform output ${TF_OUTPUT_CLI_OPTIONS}

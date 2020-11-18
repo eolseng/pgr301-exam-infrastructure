@@ -11,5 +11,5 @@ variable "project_region" {
 variable "project_keyfile" {
   description = "Path to the keyfile of the GCP Service Account to run Terraform"
   type = string
-  default = "./keyfiles/gcp_keyfile.json"
+  default = "gcp_keyfile.json"
 }
