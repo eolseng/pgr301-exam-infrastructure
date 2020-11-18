@@ -1,0 +1,5 @@
+# Mainly used so the /keyfiles/ folder gets commited to Git
+# No files in this folder is commited except this .gitignore file
+*
+*/
+!.gitignore
