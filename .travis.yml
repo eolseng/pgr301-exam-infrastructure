@@ -27,5 +27,4 @@ deploy:
   on:
     branch: master
   script: >-
-    terraform apply ${TF_APPLY_CLI_OPTIONS} tf &&
-    terraform output ${TF_OUTPUT_CLI_OPTIONS} tf
+    terraform apply ${TF_APPLY_CLI_OPTIONS} tf

@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.com/eolseng/pgr301-exam-infrastructure.svg?branch=master)](https://travis-ci.com/eolseng/pgr301-exam-infrastructure)
+
+## Todo
+-[ ] Undersøke om jeg trenger `terraform output` etter `terraform apply`. `terraform output tf` fungerer ikke, så må evt. gjøre endringer i logikken.
+
+
+## Info
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf', som `terraform plan tf` eller `terraform apply tf`.
 
@@ -41,3 +48,4 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf'
 ## Service Account Roles
 * `Storage Admin` - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.
 * `Service Usage Admin` - lar Terraform kontrollere hvilke services som er aktive via "google_project_service" resourcen
+
