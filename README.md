@@ -3,7 +3,6 @@
 ## Todo
 - [ ] Undersøke om jeg trenger `terraform output` etter `terraform apply`. `terraform output tf` fungerer ikke, så må evt. gjøre endringer i logikken.
 
-
 ## Info
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf', som `terraform plan tf` eller `terraform apply tf`.
@@ -45,7 +44,9 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf'
 
 7. Prosjektet er nå konfigurert slik at et push til `master` branchen vil oppdatere infrastrukturen i henhold til filene i dette prosjektet.
 
-## Service Account Roles
+## Terraform Service Account Roles
 * `Storage Admin` - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.
 * `Service Usage Admin` - lar Terraform kontrollere hvilke services som er aktive via "google_project_service" resourcen
+* `Service Account User` - lar Terraform utføre operasjoner som andre Service Accounts
+* `Cloud Run Admin` - lar Terraform ha full tilgang til Cloud Run ressurser
 
