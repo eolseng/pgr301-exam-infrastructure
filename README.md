@@ -2,7 +2,7 @@
 # Terraform Infrastructure [![Build Status](https://travis-ci.com/eolseng/pgr301-exam-infrastructure.svg?branch=master)](https://travis-ci.com/eolseng/pgr301-exam-infrastructure)
 
 Dette repositoriet er infrastruktur-biten av eksamenen min i faget **PGR301 - DevOps i skyen**.
-Prosjektet viser hvordan man kan bruke Travis-CI og Terraform til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
+Prosjektet viser hvordan man kan bruke **Travis-CI** og **Terraform** til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
 
 Det er gjort forsøk på å provisjonere mest mulig av infrastrukturen via Terraform, men det er behov for å gjøre et par manuelle konfigurasjoner. Dette er beskrevet under _"Opprettelse av infrastruktur"_.
 
