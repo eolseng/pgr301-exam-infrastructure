@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/eolseng/pgr301-exam-infrastructure.svg?branch=master)](https://travis-ci.com/eolseng/pgr301-exam-infrastructure)
 
 ## Todo
--[ ] Undersøke om jeg trenger `terraform output` etter `terraform apply`. `terraform output tf` fungerer ikke, så må evt. gjøre endringer i logikken.
+- [ ] Undersøke om jeg trenger `terraform output` etter `terraform apply`. `terraform output tf` fungerer ikke, så må evt. gjøre endringer i logikken.
 
 
 ## Info
