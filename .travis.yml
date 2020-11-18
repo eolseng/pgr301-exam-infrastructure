@@ -8,7 +8,7 @@ env:
   - TF_INIT_CLI_OPTIONS="-input=false"
   - TF_PLAN_CLI_OPTIONS="-lock=false -input=false"
   - TF_APPLY_CLI_OPTIONS="-auto-approve -input=false"
-  - TF_OUTPUT_CLI_OPTIONS="-input=false"
+  - TF_OUTPUT_CLI_OPTIONS=""
 before_install:
 - openssl aes-256-cbc -K $encrypted_e3b08b1bff3b_key -iv $encrypted_e3b08b1bff3b_iv
   -in gcp_keyfile.json.enc -out ./keyfiles/gcp_keyfile.json -d
