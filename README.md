@@ -4,14 +4,13 @@
 Dette repositoriet er infrastruktur-biten av eksamenen min i faget **PGR301 - DevOps i skyen**.
 Prosjektet viser hvordan man kan bruke Travis-CI og Terraform til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
 
-Det er gjort forsøk på å provisjonere mest mulig av infrastrukturen via Terraform, men det er behov for å gjøre et par manuelle konfigurasjoner. Dette er beskrevet under "Opprettelse av infrastruktur".
+Det er gjort forsøk på å provisjonere mest mulig av infrastrukturen via Terraform, men det er behov for å gjøre et par manuelle konfigurasjoner. Dette er beskrevet under _"Opprettelse av infrastruktur"_.
+
+All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
+Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe kommandoer med 'tf', som `terraform plan tf` eller `terraform apply tf`.
 
 ## Todo
 - [ ] Undersøke om jeg trenger `terraform output` etter `terraform apply`. `terraform output tf` fungerer ikke, så må evt. gjøre endringer i logikken.
-
-## Info
-All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
-Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf', som `terraform plan tf` eller `terraform apply tf`.
 
 ## Opprettelse av infrastruktur
 1. Opprett et Google Cloud Platform prosjekt
@@ -26,7 +25,7 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf'
     gcloud services enable cloudresourcemanager.googleapis.com
     ```
 4. Lag en `Service Account` for Terraform
-    * Gi kontoen de rollene som er beskrevet senere i dokumentet
+    * Gi kontoen de rollene som er beskrevet i _"Terraform Service Account Roles"_
     * Eksporter en .json-nøkkel for kontoen
     * Navngi nøkkelen som `gcp_keyfile.json` og plasser den i prosjektetes rot-mappe
     
