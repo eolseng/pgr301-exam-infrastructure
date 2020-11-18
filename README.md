@@ -4,7 +4,7 @@
 Dette repositoriet er infrastruktur-biten av eksamenen min i faget **PGR301 - DevOps i skyen**.
 Prosjektet viser hvordan man kan bruke **Travis-CI** og **Terraform** til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
 
-Det er gjort forsøk på å provisjonere mest mulig av infrastrukturen via Terraform, men det er behov for å gjøre et par manuelle konfigurasjoner. Dette er beskrevet under _"Opprettelse av infrastruktur"_.
+Det er gjort forsøk på å kontrollere mest mulig av infrastrukturen via Terraform, men det er behov for å gjøre et par manuelle konfigurasjoner først. Dette er beskrevet under _"Opprettelse av infrastruktur"_.
 
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe kommandoer med 'tf', som `terraform plan tf` eller `terraform apply tf`.
