@@ -1,0 +1,8 @@
+language: bash
+
+cache:
+  directories:
+    - "$HOME/bin/terraform/"
+
+before_install:
+  - echo "Hello world!"
