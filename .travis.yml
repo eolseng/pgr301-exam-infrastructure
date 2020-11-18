@@ -4,5 +4,11 @@ cache:
   directories:
     - "$HOME/bin/terraform/"
 
+env:
+  global:
+    # TERRAFORM
+    - TF_VERSION=0.13.5
+
 before_install:
-  - echo "Hello world!"
+  # Install Terraform if not cached
+  - bash ./scripts/install_terraform
