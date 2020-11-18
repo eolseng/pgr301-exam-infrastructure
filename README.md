@@ -57,3 +57,5 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe komm
 * `Service Account User` - lar Terraform utføre operasjoner som andre Service Accounts
 * `Cloud Run Admin` - lar Terraform ha full tilgang til Cloud Run ressurser
 
+## Annet
+* `terraform apply` utføres kun ved push til `master` branc. Det er derfor mulig å branche ut og se resultatet av `terraform plan` før endringer går i produksjon.
