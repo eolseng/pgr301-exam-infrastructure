@@ -25,6 +25,6 @@ deploy:
   provider: script
   on:
     branch: master
-  script: |-
-    - terraform apply ${TF_APPLY_CLI_OPTIONS}
-    - terraform output ${TF_OUTPUT_CLI_OPTIONS}
+  script: >-
+    terraform apply ${TF_APPLY_CLI_OPTIONS} &&
+    terraform output ${TF_OUTPUT_CLI_OPTIONS}
