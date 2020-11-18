@@ -1,2 +1,0 @@
-terraform init $TF_INIT_CLI_OPTIONS
-terraform apply $TF_APPLY_CLI_OPTIONS

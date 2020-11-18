@@ -1,5 +1,5 @@
-# Keyfile / Secrets
-gcp_keyfile.json
+# Secrets
+*_keyfile.json
 
 # Local .terraform directories
 **/.terraform/*
