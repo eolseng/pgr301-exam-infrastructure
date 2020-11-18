@@ -29,8 +29,9 @@
     ```
     NB.: Krever pålogget bruker på Travis-CI sin CLI
 
-6. Prosjektet skal nå være klart til å la Travis-CI utføre alle Terraform operasjoner 
+6. Prosjektet er nå konfigurert slik at et push til `master` branchen vil oppdatere infrastrukturen i henhold til filene i dette prosjektet. 
 
 ## Service Account Roles
+### Travis-CI + Terraform 
 * Service Account User - gir Terraform tilgang til å utføre operasjoner som andre Service Accounts
 * Storage Admin - gir Terraform tilgang til Cloud Storage
