@@ -1,6 +1,6 @@
 resource "google_cloud_run_service" "auth_application" {
 
-  name = "auth_application"
+  name = "auth-application"
   location = var.project_region
 
   metadata {
