@@ -19,13 +19,13 @@ install:
   - export TF_VAR_project_name=$PROJECT_NAME
   - export TF_VAR_project_region=$PROJECT_REGION
 script:
-  - terraform init tf ${TF_INIT_CLI_OPTIONS}
-  - terraform plan tf ${TF_PLAN_CLI_OPTIONS}
+  - terraform init ${TF_INIT_CLI_OPTIONS} tf
+  - terraform plan ${TF_PLAN_CLI_OPTIONS} tf
 deploy:
   provider: script
   skip_cleanup: true
   on:
     branch: master
   script: >-
-    terraform apply tf ${TF_APPLY_CLI_OPTIONS} &&
-    terraform output tf ${TF_OUTPUT_CLI_OPTIONS}
+    terraform apply ${TF_APPLY_CLI_OPTIONS} tf &&
+    terraform output ${TF_OUTPUT_CLI_OPTIONS} tf

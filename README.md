@@ -39,5 +39,5 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe 'tf'
 7. Prosjektet er nå konfigurert slik at et push til `master` branchen vil oppdatere infrastrukturen i henhold til filene i dette prosjektet.
 
 ## Service Account Roles
-* Storage Admin - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.
-* Service Usage Admin - lar Terraform kontrollere hvilke services som er aktive via "google_project_service" resourcen
+* `Storage Admin` - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.
+* `Service Usage Admin` - lar Terraform kontrollere hvilke services som er aktive via "google_project_service" resourcen
