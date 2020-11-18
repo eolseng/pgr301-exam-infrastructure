@@ -5,7 +5,11 @@
     ```
     gsutil versioning set on gs://[BUCKETNAVN]
     ```
-
+3. Aktiver nødvendige GCP APIer via en terminal med rettigheter:
+    ```
+   // Lar Terraform kontrollere hvilke servicer som er aktive via "google_project_service" resourcen
+    gcloud services enable cloudresourcemanager.googleapis.com
+    ```
 3. Lag en `Service Account` for Terraform
     * Gi kontoen de rollene som er beskrevet senere i dokumentet
     * Eksporter en .json-nøkkel for kontoen
@@ -33,3 +37,4 @@
 
 ## Service Account Roles
 * Storage Admin - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.
+* Service Usage Admin - lar Terraform kontrollere hvilke services som er aktive via "google_project_service" resourcen
