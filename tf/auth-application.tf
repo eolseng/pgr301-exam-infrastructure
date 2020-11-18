@@ -25,3 +25,20 @@ resource "google_cloud_run_service" "auth_application" {
   autogenerate_revision_name = true
 
 }
+
+data "google_iam_policy" "cloud_run_noauth" {
+  binding {
+    role = "roles/run.invoker"
+    members = [
+      "allUsers"
+    ]
+  }
+}
+
+resource "google_cloud_run_service_iam_policy" "noauth" {
+  location = google_cloud_run_service.auth_application.location
+  project = google_cloud_run_service.auth_application.project
+  service = google_cloud_run_service.auth_application.name
+
+  policy_data = data.google_iam_policy.cloud_run_noauth.policy_data
+}
