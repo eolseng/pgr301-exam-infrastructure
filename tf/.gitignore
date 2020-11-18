@@ -1,9 +1,3 @@
-# Secrets
-*_keyfile.json
-
-# Idea
-.idea/
-
 # Local .terraform directories
 **/.terraform/*
 
