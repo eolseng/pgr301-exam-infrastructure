@@ -3,12 +3,6 @@ resource "google_cloud_run_service" "auth_application" {
   name = "auth-application"
   location = var.project_region
 
-  metadata {
-    annotations = {
-      "run.googleapis.com/client-name" = "terraform"
-    }
-  }
-
   template {
     spec {
       containers {
@@ -16,14 +10,16 @@ resource "google_cloud_run_service" "auth_application" {
       }
     }
   }
-
+  metadata {
+    annotations = {
+      "run.googleapis.com/client-name" = "terraform"
+    }
+  }
   traffic {
     latest_revision = true
     percent = 100
   }
-
   autogenerate_revision_name = true
-
 }
 
 data "google_iam_policy" "cloud_run_noauth" {
@@ -35,7 +31,7 @@ data "google_iam_policy" "cloud_run_noauth" {
   }
 }
 
-resource "google_cloud_run_service_iam_policy" "noauth" {
+resource "google_cloud_run_service_iam_policy" "auth_application_noauth" {
   location = google_cloud_run_service.auth_application.location
   project = google_cloud_run_service.auth_application.project
   service = google_cloud_run_service.auth_application.name
