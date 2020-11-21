@@ -24,3 +24,13 @@ variable "container_registry_location" {
     error_message = "Container Registry Location must be one of the following: ['EU', 'US', 'ASIA']."
   }
 }
+
+variable "logzio_token" {
+  description = "User Token for Logz.io"
+  type = string
+}
+
+variable "logzio_url" {
+  description = "Listener URL for Logz.io"
+  type = string
+}
