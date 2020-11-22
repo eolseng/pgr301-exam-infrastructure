@@ -42,6 +42,23 @@ resource "google_cloud_run_service" "auth_application" {
           name = "SPRING_PROFILES_ACTIVE"
           value = "prod"
         }
+        # Metrics / InfluxDB
+        env {
+          name = "INFLUXDB_URI"
+          value = var.influx_url
+        }
+        env {
+          name = "INFLUXDB_DB"
+          value = influxdb_database.auth.name
+        }
+        env {
+          name = "INFLUXDB_USER"
+          value = influxdb_user.auth_app_user.name
+        }
+        env {
+          name = "INFLUXDB_USER_PASSWORD"
+          value = influxdb_user.auth_app_user.password
+        }
         resources {
           limits = {
             cpu = "1000m"
