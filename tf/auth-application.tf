@@ -10,7 +10,7 @@ resource "google_cloud_run_service" "auth_application" {
   template {
     spec {
       containers {
-        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:38d923f0e9c01c55c924928b375c3dff8c5272de"
+        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:5b4b572c3670ff85537c6f1f386f27ff6c657400"
         # Database
         env {
           name = "AUTH_DB_INSTANCE_NAME"
@@ -19,6 +19,14 @@ resource "google_cloud_run_service" "auth_application" {
         env {
           name = "AUTH_DB_NAME"
           value = google_sql_database.auth_db_database.name
+        }
+        env {
+          name = "AUTH_DB_USERNAME"
+          value = google_sql_user.auth_db_user.name
+        }
+        env {
+          name = "AUTH_DB_PASSWORD"
+          value = google_sql_user.auth_db_user.password
         }
         # Logz.io
         env {
