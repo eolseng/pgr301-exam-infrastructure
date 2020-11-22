@@ -1,3 +1,6 @@
+#
+# CLOUD RUN APPLICATION
+#
 resource "google_cloud_run_service" "auth_application" {
 
   name = "auth-application"
@@ -58,7 +61,11 @@ resource "google_cloud_run_service_iam_policy" "auth_application_noauth" {
 
   policy_data = data.google_iam_policy.cloud_run_noauth.policy_data
 }
+#
+# CLOUD SQL DATABASE
+#
 
+# Sets up a PostgreSQL Database Instance on Google Cloud Platform
 resource "google_sql_database_instance" "auth-db" {
   name = "postgres-instance-auth-db"
   region = var.project_region
@@ -66,4 +73,24 @@ resource "google_sql_database_instance" "auth-db" {
   settings {
     tier = "db-f1-micro"
   }
+}
+
+# Creates a "auth-db" database in the database instance
+resource "google_sql_database" "auth_db_database" {
+  instance = google_sql_database_instance.auth-db.name
+  name = "auth-db"
+}
+
+# Creates a "auth-app" user with a randomized password
+resource "google_sql_user" "auth_db_user" {
+  instance = google_sql_database_instance.auth-db.name
+  name = "auth-app"
+  password = random_password.auth_db_user_password.result
+}
+
+# Generates a random password for the "auth-app" database user
+resource "random_password" "auth_db_user_password" {
+  length = 32
+  special = true
+  override_special = "_%@"
 }
