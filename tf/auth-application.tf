@@ -10,26 +10,16 @@ resource "google_cloud_run_service" "auth_application" {
   template {
     spec {
       containers {
-        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:6d36779480e6caadc926e5623335ffd25f9b0af7"
+        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:38d923f0e9c01c55c924928b375c3dff8c5272de"
         # Database
         env {
-          name = "AUTH_DB_URL"
-          value = google_sql_database_instance.auth-db.public_ip_address
+          name = "AUTH_DB_INSTANCE_NAME"
+          value = google_sql_database_instance.auth-db.connection_name
         }
         env {
           name = "AUTH_DB_NAME"
           value = google_sql_database.auth_db_database.name
         }
-        env {
-          name = "AUTH_DB_USERNAME"
-          value = google_sql_user.auth_db_user.name
-        }
-        env {
-          name = "AUTH_DB_PASSWORD"
-          value = google_sql_user.auth_db_user.password
-        }
-
-
         # Logz.io
         env {
           name = "LOGZIO_TOKEN"
