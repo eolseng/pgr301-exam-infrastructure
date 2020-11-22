@@ -7,7 +7,7 @@ resource "google_project_service" "cloud_run" {
   project = var.project_name
   service = "run.googleapis.com"
 }
-k
+
 resource "google_project_service" "sqladmin" {
   project = var.project_name
   service = "sqladmin.googleapis.com"
