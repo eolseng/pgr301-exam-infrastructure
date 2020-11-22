@@ -5,7 +5,7 @@ Dette repositoriet er infrastruktur-biten av eksamenen min i faget **PGR301 - De
 Prosjektet viser hvordan man kan bruke **Travis-CI** og **Terraform** til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
 
 ###### Oppsett
-Under _"Opprettelse av infrastruktur"_ går jeg igjennom stegene for å konfigurere de forskjellige tjenestene slik at Terraform kan kontrollere mest mulig.
+Under _"Opprettelse av infrastruktur"_ går jeg igjennom stegene for å konfigurere GCP, Travis og Terraform.
 
 ###### Samlet Terraform kode
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
@@ -37,8 +37,9 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe komm
      }
    }
    ```
+6. Sett variablene for `TF_VAR_auth_app_image` og `TF_VAR_auth_app_tag` i `.travis.yml` filen.
 
-6. Krypter `gcp_keyfile.json` og variabler for prosjektnavn og region for bruk på Travis-CI med følgende kommandoer:
+7. Krypter `gcp_keyfile.json` og variabler for prosjektnavn og region for bruk på Travis-CI med følgende kommandoer:
     ```
    // Google Cloud Platform
    travis encrypt-file --pro gcp_keyfile.json --add
@@ -54,7 +55,7 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe komm
     ```
     NB.: Krever pålogget bruker på Travis-CI sin CLI
 
-7. Prosjektet er nå konfigurert slik at et push til `master` branchen vil oppdatere infrastrukturen i henhold til filene i dette prosjektet.
+8. Prosjektet er nå konfigurert slik at et push til `master` branchen vil oppdatere infrastrukturen i henhold til filene i dette prosjektet.
 
 ## Terraform Service Account Roles
 * `Storage Admin` - gir Terraform tilgang til Cloud Storage for å skrive til State Bucketen.

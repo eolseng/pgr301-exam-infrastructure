@@ -45,7 +45,7 @@ resource "google_cloud_run_service" "auth_application" {
         resources {
           limits = {
             cpu = "1000m"
-            memory = "1024Mi"
+            memory = "2048Mi"
           }
         }
       }
