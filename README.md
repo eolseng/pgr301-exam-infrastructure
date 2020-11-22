@@ -11,6 +11,9 @@ Under _"Opprettelse av infrastruktur"_ går jeg igjennom stegene for å konfigur
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe kommandoer med 'tf', som `terraform plan tf` eller `terraform apply tf`.
 
+##### Ekstra provider
+Som ekstra provider har jeg lagt inn `influxdb` og `grafana`. Konfigurasjon for dette finnes i branchen `feature/metrics`.
+
 ## Opprettelse av infrastruktur
 1. Opprett et Google Cloud Platform prosjekt
 2. Lag en `Cloud Storage Bucket` for å oppbevaring av Terraform State - navn kan være `[PROSJEKTNAVN]-terraform-state`
