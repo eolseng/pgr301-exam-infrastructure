@@ -10,10 +10,10 @@ resource "google_cloud_run_service" "auth_application" {
   template {
     spec {
       containers {
-        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:5b4b572c3670ff85537c6f1f386f27ff6c657400"
+        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:fc5f639f707165d1b2f5f0ed7f79d45f4ae0a9dd"
         # Database
         env {
-          name = "AUTH_DB_INSTANCE_NAME"
+          name = "AUTH_DB_URL"
           value = google_sql_database_instance.auth-db.connection_name
         }
         env {
@@ -37,8 +37,9 @@ resource "google_cloud_run_service" "auth_application" {
           name = "LOGZIO_URL"
           value = var.logzio_url
         }
+        # Spring Profile
         env {
-          # Set the Spring Profile to 'prod' to enable LOGZ.IO and disable InfluxDB exporting
+          # Set the Spring Profile to 'prod'
           name = "SPRING_PROFILES_ACTIVE"
           value = "prod"
         }
