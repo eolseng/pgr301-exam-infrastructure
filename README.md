@@ -43,11 +43,17 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe komm
 
 6. Krypter `gcp_keyfile.json` og variabler for prosjektnavn og region for bruk på Travis-CI med følgende kommandoer:
     ```
+   // Google Cloud Platform
    travis encrypt-file --pro gcp_keyfile.json --add
    travis encrypt --pro PROJECT_NAME="[Prosjektnavnet]" --add
    travis encrypt --pro PROJECT_REGION="[Prosjektregionen]" --add
+   // Logz.io
    travis encrypt --pro TF_VAR_logzio_token=[Token for Logz.io-bruker] --add
-   travis encrypt --pro TF_VAR_logzio_url=[Listener URL for Logz.io] --add 
+   travis encrypt --pro TF_VAR_logzio_url=[Listener URL for Logz.io] --add
+   // Statuscake
+   travis encrypt --pro TF_VAR_statuscake_username=[Statuscake Username] --add
+   travis encrypt --pro TF_VAR_statuscake_apikey=[Statuscake API-key] --add
+   travis encrypt --pro TF_VAR_statuscake_contact_group=[Statuscake Contact Group IDs to be notified if service goes down (list of strings)] --add
     ```
     NB.: Krever pålogget bruker på Travis-CI sin CLI
 
