@@ -1,6 +1,7 @@
-#
-# CLOUD RUN APPLICATION
-#
+# # # # # # # # # # # # #
+# CLOUD RUN APPLICATION #
+# # # # # # # # # # # # #
+# Creates a Google Cloud Run instance for the Auth-Application
 resource "google_cloud_run_service" "auth_application" {
 
   name = "auth-application"
@@ -10,6 +11,30 @@ resource "google_cloud_run_service" "auth_application" {
     spec {
       containers {
         image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:897180d59c8e2b28800ac94fd72b9e7a2339e553"
+        # Database
+        env {
+          name = "AUTH_DB_URL"
+          value = google_sql_database_instance.auth-db.public_ip_address
+        }
+        env {
+          name = "AUTH_DB_PORT"
+          value = ""
+        }
+        env {
+          name = "AUTH_DB_NAME"
+          value = google_sql_database.auth_db_database.name
+        }
+        env {
+          name = "AUTH_DB_USERNAME"
+          value = google_sql_user.auth_db_user.name
+        }
+        env {
+          name = "AUTH_DB_PASSWORD"
+          value = google_sql_user.auth_db_user.password
+        }
+
+
+        # Logz.io
         env {
           name = "LOGZIO_TOKEN"
           value = var.logzio_token
@@ -61,9 +86,10 @@ resource "google_cloud_run_service_iam_policy" "auth_application_noauth" {
 
   policy_data = data.google_iam_policy.cloud_run_noauth.policy_data
 }
-#
-# CLOUD SQL DATABASE
-#
+
+# # # # # # # # # # # #
+# CLOUD SQL DATABASE  #
+# # # # # # # # # # # #
 
 # Sets up a PostgreSQL Database Instance on Google Cloud Platform
 resource "google_sql_database_instance" "auth-db" {
