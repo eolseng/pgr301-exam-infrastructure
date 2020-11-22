@@ -1,3 +1,6 @@
+# # # # # # # # # # # # #
+# GOOGLE CLOUD PLATFORM #
+# # # # # # # # # # # # #
 variable "project_name" {
   description = "The name of the GCP project."
   type = string
@@ -20,7 +23,10 @@ variable "container_registry_location" {
   default = "EU"
 
   validation {
-    condition = contains(["EU", "US", "ASIA"], var.container_registry_location)
+    condition = contains([
+      "EU",
+      "US",
+      "ASIA"], var.container_registry_location)
     error_message = "Container Registry Location must be one of the following: ['EU', 'US', 'ASIA']."
   }
 }
@@ -34,7 +40,9 @@ variable "auth_app_tag" {
   description = "Tag for the Auth App"
   type = string
 }
-
+# # # # # #
+# LOGZ.IO #
+# # # # # #
 variable "logzio_token" {
   description = "User Token for Logz.io"
   type = string
@@ -44,8 +52,10 @@ variable "logzio_url" {
   description = "Listener URL for Logz.io"
   type = string
 }
-
-variable "statuscake_username"{
+# # # # # # # #
+# STATUSCAKE  #
+# # # # # # # #
+variable "statuscake_username" {
   description = "Username of the StatusCake account"
   type = string
 }
@@ -57,5 +67,34 @@ variable "statuscake_apikey" {
 
 variable "statuscake_contact_group" {
   description = "ID of the contact group to be contacted if service goes down"
+  type = string
+}
+# # # # # # #
+# INFLUXDB  #
+# # # # # # #
+variable "influx_url" {
+  description = "URL to the InfluxDB Service"
+  type = string
+}
+
+variable "influx_username" {
+  description = "Username for the InfluxDB Service"
+  type = string
+}
+
+variable "influx_password" {
+  description = "Password for the InfluxDB Service user"
+  type = string
+}
+# # # # # #
+# GRAFANA #
+# # # # # #
+variable "grafana_url" {
+  description = "URL to the Grafana Service"
+  type = string
+}
+
+variable "grafana_auth" {
+  default = "Auth token for Grafana. Can be 'USERNAME:PASSWORD'."
   type = string
 }
