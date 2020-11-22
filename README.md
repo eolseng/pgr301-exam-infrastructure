@@ -4,18 +4,30 @@
 Dette repositoriet er infrastruktur-biten av eksamenen min i faget **PGR301 - DevOps i skyen**.
 Prosjektet viser hvordan man kan bruke **Travis-CI** og **Terraform** til å kontrollere infrastruktur, med hovedvekt på **Google Cloud Platform** som Terraform provider.
 
-###### Oppsett
-Under _"Opprettelse av infrastruktur"_ går jeg igjennom stegene for å konfigurere GCP, Travis og Terraform.
+## Benyttede resources
+* `google_project_service` - aktiverer nødvendige tjenester i Google Cloud prosjektet.
+* `google_container_registry` - image registry som [det andre repositoriet til eksamenen](https://github.com/eolseng/pgr301-exam-auth) pusher sine images til. 
+* `google_cloud_run_service` - kjører applikasjonen som ligger i Container Registryet.
+    * `google_iam_policy` og `google_cloud_run_service_iam_policy` tillater offentlig tilgang til tjenesten
+* `google_sql_database_instance` - hoster en PostgreSQL database for applikasjonen
+    * `google_sql_database` - oppretter en database
+    * `google_sql_user` - oppretter en database-bruker for applikasjonen
+* `statuscake_test` - brukes til å teste om applikasjonen er oppe ved å sende enkle HTTP-meldinger
+* `random_password` - brukes til å generere passord til brukere
+### Ekstra providere - InfluxDB og Grafana i `feature/metrics` branchen
+I `feature/metrics` branchen har jeg konfigurert InfluxDB og Grafana for bruk med applikasjonen.
+Jeg fant dessverre ingen god måte å hoste dette på via Terraform eller en annen provider da [InfluxData](https://www.influxdata.com/) nå bruker versjon 2 og SpringBoot sin Micrometer ikke har støtte for dette enda.
+
+Ved å starte den vedlagte Docker Compose filen med `docker-compose -f metrics-compose.yml up` og sette Terraform Variablene under kan man utføre en `terraform plan tf` for å bekrefte at det vil fungere.
+* `influxdb_database` - oppretter en database i InfluxDB for applikasjonen
+* `influxdb_user` - oppretter en bruker for applikasjonen å skrive data til InfluxDB og en bruker for Grafana til å lese data fra InfluxDB
+* `grafana_data_source` - oppretter en Data Source i Grafana for InfluxDBen som er konfigurert
+* `grafana_dashboard` - laster inn et ferdiglaget dashboard for applikasjonen
+Dersom man har InfluxDB(<v.2) og Grafana hostet kan man kopiere over InfluxDB konfigurasjonen fra `application-dev.yml` til `application-prod.yml` så skal det fungere.  
 
 ###### Samlet Terraform kode
 All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe kommandoer med 'tf', som `terraform plan tf` eller `terraform apply tf`.
-
-##### Ekstra provider
-Som ekstra provider har jeg lagt inn `influxdb` og `grafana`. Dette er konfigurert i branchen `feature/metrics`, da Terraform ikke er konfigurert til å hoste disse tjenestene.
-Ved å starte den vedlagte Docker Compose filen med `docker-compose -f metrics-compose.yml up` kan man utføre en `terraform plan tf` for å bekrefte at det vil fungere.
-
-For å ta dette i bruk må man få disse tjenestene hostet, sette de nødvendige Terraform Variablene og oppdatere "Auth Appen" sin 'prod' profil til å bruke samme InfluxDB konfigurasjon som 'dev' profilen.
 
 ## Opprettelse av infrastruktur
 1. Opprett et Google Cloud Platform prosjekt
