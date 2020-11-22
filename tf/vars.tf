@@ -34,3 +34,18 @@ variable "logzio_url" {
   description = "Listener URL for Logz.io"
   type = string
 }
+
+variable "statuscake_username"{
+  description = "Username of the StatusCake account"
+  type = string
+}
+
+variable "statuscake_apikey" {
+  description = "API Key for the StatusCake account"
+  type = string
+}
+
+variable "statuscake_contact_group" {
+  description = "ID of the contact group to be contacted if service goes down"
+  type = string
+}
