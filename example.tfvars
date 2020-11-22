@@ -16,9 +16,9 @@ statuscake_apikey         = "STATUSCAKE_API_KEY"
 statuscake_contact_group  = "0123456"
 
 # InfluxDB
-influx_url          = "http://localhost:8086"
-influx_username     = "admin"
-influx_password     = "admin"
+influx_url      = "http://localhost:8086"
+influx_username = "admin"
+influx_password = "admin"
 
 # Grafana
 grafana_url   = "http://localhost:8086"
