@@ -15,6 +15,12 @@ resource "google_cloud_run_service" "auth_application" {
           name = "LOGZIO_URL"
           value = var.logzio_url
         }
+        resources {
+          limits = {
+            cpu = "1000m"
+            memory = "1024Mi"
+          }
+        }
       }
     }
   }
