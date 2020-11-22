@@ -4,6 +4,8 @@ cache:
     - "$HOME/bin/terraform/"
 env:
   global:
+    - TF_VAR_auth_app_image="eu.gcr.io/pgr301-exam-10004/pgr301-exam-auth"
+    - TF_VAR_auth_app_tag="12c23534a02478580182f3de63ac17ae649b362a"
     - TF_VERSION=0.13.5
     - TF_INIT_CLI_OPTIONS="-input=false"
     - TF_PLAN_CLI_OPTIONS="-lock=false -input=false"

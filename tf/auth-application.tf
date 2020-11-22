@@ -10,7 +10,7 @@ resource "google_cloud_run_service" "auth_application" {
   template {
     spec {
       containers {
-        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:12c23534a02478580182f3de63ac17ae649b362a"
+        image = "${var.auth_app_image}:${var.auth_app_tag}"
         # Database
         env {
           name = "AUTH_DB_URL"
@@ -39,7 +39,6 @@ resource "google_cloud_run_service" "auth_application" {
         }
         # Spring Profile
         env {
-          # Set the Spring Profile to 'prod'
           name = "SPRING_PROFILES_ACTIVE"
           value = "prod"
         }
@@ -51,11 +50,11 @@ resource "google_cloud_run_service" "auth_application" {
         }
       }
     }
-  }
-  metadata {
-    annotations = {
-      "run.googleapis.com/client-name" = "terraform"
-      "run.googleapis.com/cloudsql-instances" = "${var.project_name}:${var.project_region}:${google_sql_database_instance.auth-db.name}"
+    metadata {
+      annotations = {
+        "run.googleapis.com/client-name" = "terraform"
+        "run.googleapis.com/cloudsql-instances" = "${var.project_name}:${var.project_region}:${google_sql_database_instance.auth-db.name}"
+      }
     }
   }
   traffic {

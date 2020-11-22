@@ -25,6 +25,16 @@ variable "container_registry_location" {
   }
 }
 
+variable "auth_app_image" {
+  description = "URI for the Auth App image"
+  type = string
+}
+
+variable "auth_app_tag" {
+  description = "Tag for the Auth App"
+  type = string
+}
+
 variable "logzio_token" {
   description = "User Token for Logz.io"
   type = string

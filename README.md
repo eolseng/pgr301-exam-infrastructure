@@ -64,4 +64,4 @@ Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe komm
 * `Cloud SQL Admin` - lar Terraform ha full tilgang til Cloud SQL ressurser
 
 ## Annet
-* `terraform apply` utføres kun ved push til `master` branc. Det er derfor mulig å branche ut og se resultatet av `terraform plan` før endringer går i produksjon.
+* `terraform apply` utføres kun ved push til `master` branch. Det er derfor mulig å branche ut og se resultatet av `terraform plan` før endringer går i produksjon.
