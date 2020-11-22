@@ -12,7 +12,10 @@ All Terraform-kode er samlet i `/tf` mappen for bedre oversikt.
 Dersom man skal utføre Terraform-operasjoner lokalt må man derfor suffixe kommandoer med 'tf', som `terraform plan tf` eller `terraform apply tf`.
 
 ##### Ekstra provider
-Som ekstra provider har jeg lagt inn `influxdb` og `grafana`. Konfigurasjon for dette finnes i branchen `feature/metrics`.
+Som ekstra provider har jeg lagt inn `influxdb` og `grafana`. Dette er konfigurert i branchen `feature/metrics`, da Terraform ikke er konfigurert til å hoste disse tjenestene.
+Ved å starte den vedlagte Docker Compose filen med `docker-compose -f metrics-compose.yml up` kan man utføre en `terraform plan tf` for å bekrefte at det vil fungere.
+
+For å ta dette i bruk må man få disse tjenestene hostet, sette de nødvendige Terraform Variablene og oppdatere "Auth Appen" sin 'prod' profil til å bruke samme InfluxDB konfigurasjon som 'dev' profilen.
 
 ## Opprettelse av infrastruktur
 1. Opprett et Google Cloud Platform prosjekt
