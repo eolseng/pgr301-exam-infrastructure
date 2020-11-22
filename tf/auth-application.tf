@@ -10,7 +10,7 @@ resource "google_cloud_run_service" "auth_application" {
   template {
     spec {
       containers {
-        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:1f9bc80cb568b471e1bce806af60394db6cab5d4"
+        image = "eu.gcr.io/${var.project_name}/pgr301-exam-auth:12c23534a02478580182f3de63ac17ae649b362a"
         # Database
         env {
           name = "AUTH_DB_URL"
