@@ -4,8 +4,8 @@ cache:
     - "$HOME/bin/terraform/"
 env:
   global:
-    - PROJECT_NAME="pgr301-exam-10004"
-    - PROJECT_REGION="europe-north1"
+    - TF_VAR_project_name="pgr301-exam-10004"
+    - TF_VAR_project_region="europe-north1"
     - TF_VAR_auth_app_image="eu.gcr.io/pgr301-exam-10004/pgr301-exam-auth"
     - TF_VAR_auth_app_tag="855b5cb8554df13b873a0fb866792f85a3fcac9d"
     - TF_VERSION=0.13.5
@@ -13,8 +13,6 @@ env:
     - TF_PLAN_CLI_OPTIONS="-lock=false -input=false"
     - TF_APPLY_CLI_OPTIONS="-auto-approve -input=false"
     - TF_OUTPUT_CLI_OPTIONS=""
-#    - secure: dpHmya6E8N9IRHcFSoGjclfWvIY0MjW+jZ1OpUM1DQgL4B1+6o2o+OaTSJ0/4/2oWnUU9j8F1A6ARmu1GVGT6pDvcj58I8cfQVpuQSBzFMbykYCHiIXWY9EUUiacvQenOrcf7r44/EoNUO9pFod/ISzWM28pd359GMACQNzIF5rPy3B9AAvv4VQdlfTptaVD+LoKVjA1uRtfkOrsGrSPu7BPTRMW/+biUvdyEccia/mT5fvvYrs1xgpYFoYOVa8o/sQ9Iv7dlBM8s1JlmAxh706eaWZPWPpV2gakKxJEdrbbDcNAegTbdW0W3HQYxY9rp3Y2XE6nQ3FztKpXh57isMSDPUEXn+vvEV0VGsML75P81bBLeNpfWU+fSbtrdotvO21vzA6gXK6OH1xu+36Qc5RlyWtqM9jaIG96+hgn3E/MKQj5MXLggQIGjX8//tEBS9jg/hgTIobLXX0WTGuO6+ZHLbDAoI9qFNp9FKBy/nDc2C/rSWH1GI5VoS2TB0NjPU6SprErFwizrXXqFuzgQggEM2R2eI0JXb0H0kLcLS7f3b3kOOtDDSquv8fkueaQvfcV5TnxgGE/Z6F3jKhh6IcSSxVuy7avMD4zVsFPAcjybICD88csd0EIf849slGfm/Vc9J5GhLm7rKMdMP9nC0ptERgEqKvVTlSpHMU7H+0=
-#    - secure: ZYkCUcWfunnL2TXsQ/VdkItG/lRU+T3+06j4Tbecw1O0DZNFJKT/MgNZJuhgT2ejNL9H5mHq9QTcXniieZ70fUpXKWd1hw3GDFxW+LkJAYJMzzTOrXkZRGFr0Q+cCbTeoeFan69knrNNN31MHm9PlF06kEKmvhqFCK8ZrL1NqsVGlZ8ukmI9W01L0/b2VUESnI/ymeClDjViura/EANsZH7Tpz42WNMT8sbH+72mAgETe3bBm5N1UkiK/6pa2YIS02/sJC7f8KdxGoYcdSzirh1ANfIegpWY1CvXRt++IZTza4okk5mbVpykOSFFom1jHdA0k+vcLmctW5OOt9SDh/aZrw4/jvl1DVawQGY3a7fNpPz1NJqI8lyuZYA8CtQ6zFcc5sjGbypmUJz+do2lUzdsCHidA4OEnZhbg2v1W/8ul/43KtUJpClmnejGKG1V+iVdqCB37MJwp3A9i4p8XwXSb7j+c+rGeh6pPVMiy51Nodipu1kMXwSkyLw+bZQOh8W4b3PU+3KqRigp1UkFCOIrBn6IGwpPwiR959b5fN4+wh0QbISu3lZOHBbJ6qRY0K4Dq2fCJXykEU/0BQiGVGAWgxEc/tgxwABVNeCYonlDPo4szil0Z79GWSrEyrjaiuP8hX+W8SGz0oLmvs5eXrkiQnmXxUZrFB1JgqPP3zg=
     - secure: itE6xn6nRWNOph4uM1VKMfEzE4tX7qJG/O++IUJaNH5/bPi2mJL1SnW/iPrXVn6hgEe/2HJPqiUwKwMMO28qgVo2O9hLprA0eCgoc94LI6bJpf6OMNR6RVoxdnLQu+fTXTZzrprcG7u3V30DrgA15zut4dCe3bpzik2sGraXDjDMjNTFfA/dpjnJoU/R7sJZ9H6GCB4Jt5mwfxNrMcTXSQyX9qtlC4iNqPtyvyDu6Oe8yXqkqtUtAUXLIpUJHn7deKSnFTaLErT6HxcJqiYmMrDJeyWT3yyCb3S+8dWQNNtkVgrz5fEuD0XeweXxvKfVPNkBox7Ge3nx3pXVrNz/8EI8NnF45F1g8r0fH1Ss8hw6v8un5OO+2xhYfiOC3K2JLOJqc8Y45OXh340leRFW2WMbggOkpjx/F7PacPMdv13S3DvTNGGK0O80ErAZVYc6wHdcC795XjRtrwXYhAypX2A7eJoCNDS+Nsuf63ViJtFqgVpiDEc4hO+alj1dO86Zs2ENCR69juYOqJySpF69cmcNfSR6TD2m7Fh8kdYZdlDq5U7h1NbGKGIZKVpPvw6SZluqZzsfWqKc1KwIcVusz5tTRfFDKOHquvLi9lrHOOoBlHHX5CDGIS+TWZIOSW86XRNVrZJSDAtF4l2wkrpwFuerH0Vgz4gXoQpqK8qayO4=
     - secure: TBQ06pX8UkMNYo4XVbzaDKozZxL+VPE1fLTiMKNCdMcKbDMCkt8rYNlrlhxbsxQOddyuf+NQsleTJjnv+6YVofNGkygJpyGo7mAS/FMISvIXGT1/koA348zA52GEYcZX5IPTDZr3N2m7ULp6H/lWbo6+gC6SBhjFXrKG92p13iAKZ1z8D0d+z7LNJY38C7LigG+FC4wWk6CFihiR1iT4/buYRsxtsyW0sucqXUp0kFRcI42kvbsgHKf7m3bAJy8/k4rqk1SXEGvVQge+A2zGwoWtVODGk5xtN40UCPgx2uferYtflNv9xZXWQNbW4u4sWmPPnPuLngpzqxgqry1CQNzZ2qbwdZrCJ5CS3t+nxId5gGAaAvDXv2RPIONF3a8lma5Bnq1A54+Sm3XG+4ClOXYSJvkqA9dhKcLfZbEKbNjro8sPM+hTWgwP2AIhUyqYPLwEZctrtvJRVlLpqNGq4IQxSgCbgB1dGq1pP5bx5pwj0TbfTfFghEsguOJ6lARwsCfKm4hRvpnWAKXcM/aYiTQN7h80YKVyu+Im2t4doXgPYMeCOKCzwfQFDrKeuIY9IK3VrYaMS7eLouawNYrZGP8CkYxJTxYi2c63B8RqugR/xy/qSRRCW6nTyQhu8C0Skv8HFWstVj/ViApj4eAjlIXPe/0DQZ1Im86CMsbS+HQ=
     - secure: pBrcAr2OsPEPyNc9L0oT3f6nntmsPaD7eYotcCZSzdVODPICVC13aAIyOtGrM31KmILEIX3LuuoO9ub64nVKPyU6WqMkRv4jcuXBSs+QmVfZ+3TW1TrM9Dmxnll/o/+LdYWaiZhE0LA9fM86qsgQIhG5BJjMa7buwg/RLEEdrwLGUO+52gCoem6Sel3tEZBCRiUKggnniO+0rS64O/NnaL1VgFmPZql+fFLeEYCHDp4fUTeD1aNL2qaPHIyPYV/LQ+irVW92WWE8S97J9cXuBM1fwuwe20JhDhU7NNV9GWhXnpR0pdDYbF7RVLn/yBy+hvN2KgMKXT5ear1tWsH3nV+UKp1uYCQKR4Ohz7x+uoEhWHV4sMniOL/L53SEiE5nXW4a8Lo8sjr2ki6HZ8YS5yVF567HLt3WlJ40qETtQ+Fzv1Q43vL2cJx4/OXXpM9g+qNTl2bTW2ADAv0fLhN/tEDVgSr/AV5XMI5DfCJCHGoxYZnuRtFHxwJmd7aWDBjY3v9R9Wl9TaEuSozoFEojuHeC54RMXJ+Gs9kz1Eg8PRRGKEIL2V+hIjQBSDZ2NCm4WpopNW93lsd0JficXS2qN9PCIo7WspotOQYfMcur948CmvoFkVkoTKgbGjy1ZmpaxOUEN6ITPEeBcgkPN4MD92RPiFGq2cSqUf9ciS2q+Po=
@@ -24,9 +22,6 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_e3b08b1bff3b_key -iv $encrypted_e3b08b1bff3b_iv
     -in gcp_keyfile.json.enc -out gcp_keyfile.json -d
   - bash ./scripts/install_terraform
-install:
-  - export TF_VAR_project_name=$PROJECT_NAME
-  - export TF_VAR_project_region=$PROJECT_REGION
 script:
   - terraform init ${TF_INIT_CLI_OPTIONS} tf
   - terraform plan ${TF_PLAN_CLI_OPTIONS} tf
