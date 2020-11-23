@@ -56,7 +56,7 @@ Dersom man har InfluxDB(under versjon 2) og Grafana offentlig hostet kan man i a
      }
    }
    ```
-6. Sett de følgende env.global-variablene for `TF_VAR_auth_app_image` og `TF_VAR_auth_app_tag` i `.travis.yml` filen.
+6. Sett de følgende env.global-variablene i `.travis.yml` filen.
     ```
     TF_VAR_project_name=[IDen på GCP Prosjektet]
     TF_VAR_project_region=[Region GCP Prosjektet er opprettet i]
