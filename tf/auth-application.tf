@@ -1,6 +1,7 @@
 # # # # # # # # # # # # #
 # CLOUD RUN APPLICATION #
 # # # # # # # # # # # # #
+
 # Creates a Google Cloud Run instance for the Auth-Application
 resource "google_cloud_run_service" "auth_application" {
 
